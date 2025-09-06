@@ -26,7 +26,7 @@ function Result() {
           <span className='text-[32px] lg:text-[48px] text-primary'>${el.amount}.00</span>
         </li>)
       })}
-      <li className='mt-auto'><button className={`${result[0].amount == 0 ? 'bg-no-active' : 'bg-primary'} hover:bg-active text-[20px] text-dark-green rounded-[5px] w-full px-8 py-4`}>Reset</button></li>
+      <li className='mt-auto'> <button className={`${result[0].amount == 0 ? 'bg-no-active' : 'bg-primary'} hover:bg-active text-[20px] text-dark-green rounded-[5px] w-full px-8 py-4`}>Reset</button></li>
     </ul>
   )
 }
