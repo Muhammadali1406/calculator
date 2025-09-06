@@ -2,12 +2,13 @@ import React from 'react'
 import Input from './Input'
 import SelectTip from './SelectTip'
 
-function Form() {
+function Form(setValues) {
+    
     return (
         <div className='flex flex-col gap-8 lg:gap-10'>
-            <Input label="Bill" icon="dollar" />
-            <SelectTip />
-            <Input label="Number Of People" icon='user' />
+            <Input label="Bill" icon="dollar" Values={setValues}/>
+            <SelectTip Values={setValues}/>
+            <Input label="Number Of People" icon='user' Values={setValues}/>
         </div>
     )
 }

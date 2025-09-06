@@ -1,12 +1,21 @@
 import React, { useState } from 'react'
 
-function Input({ label, icon }) {
+function Input({ label, icon, Values }) {
   const [state, Setstate] = useState(false)
   const chek = (e) => {
+    let [stat, SetStat] = Values.setValues
     if (e.target.value === '0') {
       Setstate(true)
     }else{
       Setstate(false)
+      if(label=="Bill"){
+        stat={...stat, bill: e.target.value}
+        SetStat(stat)
+      }
+      else{
+         stat={...stat, people: e.target.value}
+        SetStat(stat)
+      }
     }
 
   }

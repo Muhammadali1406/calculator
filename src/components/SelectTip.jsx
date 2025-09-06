@@ -28,20 +28,36 @@ const dateTip = [
   },
 ]
 
-function SelectTip() {
-  const [state, Setstate] = useState(dateTip)
+function SelectTip(Values) {
+  let [state, Setstate] = useState(dateTip)
+  // let [stat, SetStat] = Values.setValues
+
+  const obj = Values
+
+  let [stat, Setstat] = obj.Values.setValues
+
   const changer = (id) => {
-    
-    Setstate(prev => {
-
-      return prev.map(el => {
-        console.log(el.id)
-
-        return {...el, isselected: el.id == id ? el.isselected = true : false}
-      })
-
+    state = state.map(el => {
+      if (el.id == id) {
+        stat = { ...stat, select: el.title }
+        Setstat(stat)
+      }
+      return { ...el, isselected: el.id == id ? true : false }
     })
+    Setstate(state)
 
+
+  }
+
+  const Getper = (e) => {
+
+    stat = { ...stat, select: e.target.value }
+    Setstat(stat)
+
+    state = state.map(el => {
+      return { ...el, isselected: false }
+    })
+    Setstate(state)
 
   }
 
@@ -49,13 +65,13 @@ function SelectTip() {
     <>
       <span>Select tip %</span>
       <ul className='grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-[14px]'>
-        {dateTip.map(el => {
+        {state.map(el => {
           return <li key={el.id}>
             <button onClick={() => changer(el.id)} className={`${el.isselected ? 'bg-primary' : "bg-dark-green"} text-white text-2xl w-full  px-4 py-1.5 rounded-[5px]`}>{el.title}%</button>
           </li>
         })}
         <li>
-          <input className=' text-2xl w-full  px-4 py-1.5 rounded-[5px] placeholder:text-input-text text-dark-green' placeholder='Custom' type="number" autoComplete='off' required />
+          <input onChange={Getper} className=' text-2xl w-full  px-4 py-1.5 rounded-[5px] placeholder:text-input-text text-dark-green' placeholder='Custom' type="number" autoComplete='off' required />
         </li>
       </ul>
     </>
