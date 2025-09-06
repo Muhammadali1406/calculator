@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+
+@theme {
+    /*colors*/
+
+    --color-primary: #26C2AE;
+    --color-dark-green: #00474B;
+    --color-color-bg: #C5E4E7;
+    --color-text-color: #5E7A7D;
+    --color-input-bg: #F3F9FA;
+    --color-white: #FFFFFF;
+    --color-input-text: #547878;
+    --btn-text: #00474B;
+    --color-no-active: #0D686D;
+    --color-mini-text: #7F9D9F;
+    --color-active: #9FE8DF;
+    --color-error-cl: #E17457;
+    --color-title: #3D6666;
+
+
+    /*fonts*/
+
+    --default-font-family: 'Space Mono', monospace;
+
+}
+
+@layer base {
+    #root {
+        @apply font-bold text-base leading-1 flex flex-col items-center text-text-color min-h-screen w-full bg-color-bg
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
