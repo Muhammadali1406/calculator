@@ -1,22 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Input({ label, icon, Values }) {
   const [state, Setstate] = useState(false)
+  let [stat, SetStat] = Values.setValues
   const chek = (e) => {
-    let [stat, SetStat] = Values.setValues
+
     if (e.target.value === '0') {
       Setstate(true)
-    }else{
+    } else {
       Setstate(false)
-      if(label=="Bill"){
-        stat={...stat, bill: e.target.value}
+      if (label == "Bill") {
+        stat = { ...stat, bill: e.target.value }
         SetStat(stat)
       }
-      else{
-         stat={...stat, people: e.target.value}
+      else {
+        stat = { ...stat, people: e.target.value }
         SetStat(stat)
       }
     }
+
+
 
   }
   return (
@@ -25,7 +28,7 @@ function Input({ label, icon, Values }) {
         <span className='text-dark-green mb-1'>{label}</span>
         {state && <span className='text-error-cl'>Can't be zero</span>}
       </div>
-      <input onChange={chek} className={`bg-input-bg bg-[url("./${icon}.svg")] flex text-rigth text-dark-green w-full rounded-[5px] px-4 py-1.5 focus:outline-2 outline-primary`} type="text" placeholder='0' />
+      <input onChange={chek} className={`bg-input-bg bg-[url("./${icon}.svg")] flex text-rigth text-dark-green w-full rounded-[5px] px-4 py-1.5 focus:outline-2 outline-primary`} type="number" placeholder='0' />
     </div>
   )
 }

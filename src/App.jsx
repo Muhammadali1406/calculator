@@ -2,9 +2,8 @@ import React, { useRef, useState } from 'react'
 import { Form, Input, SelectTip, Result } from "./components"
 import '@fontsource/space-mono/700.css';
 function App() {
-  const state = useState({bill: 0, people: 0, select: 0});
+  const state = useState({bill: 0, people: 0, select: 0, reset: false});
 
-  console.log(state);
   
   return (
     <>

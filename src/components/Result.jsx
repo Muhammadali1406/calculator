@@ -17,10 +17,7 @@ const result = [
 
 function Result(setValues) {
  const resetFn = function(){
-  value.bill=0
-  value.people=0
-  value.select=0
-
+  setvalue({bill: 0, select: 0, people: 0, reset: true})
   setRes([{...res[0], amount: 0}, {...res[1], amount: 0}])
  }
 
